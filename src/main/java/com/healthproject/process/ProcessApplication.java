@@ -23,5 +23,11 @@ public class ProcessApplication {
         SpringApplication.run(ProcessApplication.class, args);
     }
 
-
+    @Bean
+    ConnectionFactoryInitializer initializer(ConnectionFactory connectionFactory) {
+        ConnectionFactoryInitializer initializer = new ConnectionFactoryInitializer();
+        initializer.setConnectionFactory(connectionFactory);
+        initializer.setEnabled(true);
+        return initializer;
+    }
 }
